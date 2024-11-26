@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABM de Personas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div id="spinner" class="spinner" style="display: none;"></div>
+    <div id="formulario-lista" class="formulario">
+        <h1>Personas</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha de Nacimiento</th>
+                    <th>D.N.I.</th>
+                    <th>País de Origen</th>
+                    <th>Modificar</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody id="lista-personas"></tbody>
+        </table><br>
+        <button class="agregar" onclick="agregarElemento()">Agregar Elemento</button>
+    </div>
+
+    <div id="formulario-abm" class="formulario" style="display: none;">
+        <h1 id="titulo-abm">Formulario ABM</h1>
+        <label id="label-id" style="display: none;">ID: <input type="number" id="id" disabled></label>
+        <label>Nombre: <input type="text" id="nombre" required></label>
+        <label>Apellido: <input type="text" id="apellido" required></label>
+        <label>Fecha de Nacimiento: <input type="date" id="fechaNacimiento" style="width: 180px;" required></label>
+        
+        <div class="tipo-container">
+            <label for="tipo">Tipo:</label>
+            <select id="tipo" onchange="mostrarCamposPorTipo()" style="width: 180px;">
+                <option value="tipo_ciudadano">Ciudadano</option>
+                <option value="tipo_extranjero">Extranjero</option>
+            </select>
+        </div>
+        <div class="atributo">
+            <label for="dni">D.N.I.: </label>
+            <input type="number" id="dni" min="0">
+        </div>
+        <div class="atributo">
+            <label for="paisOrigen">País de Origen: </label>
+            <input type="text" id="paisOrigen">
+        </div>
+
+        <button class="aceptar" onclick="aceptarABM()">Aceptar</button>
+        <button class="cancelar" onclick="cancelarABM()">Cancelar</button>
+    </div>
+</body>
+</html>
